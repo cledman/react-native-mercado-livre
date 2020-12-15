@@ -5,7 +5,10 @@ import styles from './styles';
 
 export default function Button(props) {
     return (
-        <TouchableOpacity onPress={false} style={props.style === 'outline' ? styles.btn_outline_primary : styles.btn_primary}>
+        <TouchableOpacity 
+            onPress={props.onPress} 
+            style={props.style === 'outline' ? styles.btn_outline_primary : styles.btn_primary}
+            >
             <Text>{props.children}</Text>
         </TouchableOpacity>        
     )
