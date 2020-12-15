@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 
 import logo from '../../assets/logo.png';
 
-export default function Login({navigation}) {
+export default function RedefinePass() {
     return (
         <View style={styles.container}>
             <Image source={logo} />
@@ -17,17 +17,9 @@ export default function Login({navigation}) {
                     autoCapitalize="none"
                     placeholder="Email"
                     style={styles.input}
-                />
-                <TextInput 
-                    name="user"
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                    placeholder="Email"
-                    style={styles.input}                
-                />            
+                />          
             </View>
             <Button style="outline" onPress={false}><Text style={styles.text_primary}> Entrar</Text></Button>
-            <TouchableOpacity onPress={()=>navigation.navigate('RedefinePass')} style={styles.redefinePass}><Text style={styles.text_primary}>Esqueceu sua senha?</Text></TouchableOpacity>
         </View >
     );
 }

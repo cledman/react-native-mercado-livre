@@ -11,7 +11,7 @@ export default function Home( {navigation}) {
         <View style={styles.container}>
             <Image source={logo} />
             <Button style="outline" onPress={()=> navigation.navigate('Login')}><Text>Teste</Text></Button>
-            <Button><Text style={styles.text_white}>CRIAR CONTA</Text></Button>            
+            <Button onPress={()=> navigation.navigate('Signup')}><Text style={styles.text_white}>CRIAR CONTA</Text></Button>            
         </View >
     );
 }
