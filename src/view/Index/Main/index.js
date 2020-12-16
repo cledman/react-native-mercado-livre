@@ -7,6 +7,7 @@ export default function Main() {
     return (
         <ScrollView>
             <Text>Página princopal</Text>
+
         </ScrollView>
     );
 }
