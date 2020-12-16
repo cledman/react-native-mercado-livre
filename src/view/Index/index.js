@@ -5,21 +5,27 @@ import { AntDesign } from "@expo/vector-icons";
 
 import styles from './styles';
 import Navigation from './Navigation';
+import logoMP from '../../assets/mercado_pago.png'
+import Profile from '../../components/Profile';
 const Drawer = createDrawerNavigator();
 
-const HeaderDrawer = () =>{
+const HeaderDrawer = () => {
     return (
-        <View>
-            <View>
-                <Text>Olá</Text>
+        <View style={styles.drawer_header}>
+            <View style={styles.user}>                
+                <Profile />
+                <View>
+                    <Text>Olá José</Text>
+                    <Text>Nivel 3 - Mercado Pontos</Text>
+                </View>
             </View>
-            <View>
-               <Text>Mercado Pago</Text> 
-            </View>            
+            <View style={styles.mercado_pago}>
+                <Image source={logoMP} />
+                <Text style={styles.mercado_pago_text}>Mercado Pago</Text>
+            </View>
         </View>
-    )
-}
-
+    );
+};
 
 const DrawerContent = ( { navigation }) => {
     const  listMenuDrawer  = [
@@ -38,22 +44,22 @@ const DrawerContent = ( { navigation }) => {
     ]
 
     return (
-        <View >
-          <HeaderDrawer />
-          <View>
-              <DrawerContentScrollView>
-                  {listMenuDrawer.map((menu) =>(
-                      <DrawerItem 
-                        key={menu.id}
-                        label={menu.name}
-                        icon={()=>menu.icon}
-                        onPress={()=>navigation.navigate(menu.action)}
-                      />
-                  ))}
-              </DrawerContentScrollView>
-          </View>
+        <View style={styles.drawer_content}>
+            <HeaderDrawer />
+            <View style={styles.drawer_body}>
+                <DrawerContentScrollView>
+                    {listMenuDrawer.map((menu) => (
+                        <DrawerItem
+                            label={menu.name}
+                            key={menu.id}
+                            icon={() => menu.icon}
+                            onPress={() => navigation.navigate(menu.action)}
+                        />
+                    ))}
+                </DrawerContentScrollView>
+            </View>
         </View>
-    )
+    );
 }
 
 export default function Index() {
