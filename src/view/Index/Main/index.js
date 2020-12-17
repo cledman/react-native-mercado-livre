@@ -5,9 +5,8 @@ import styles from './styles';
 
 export default function Main() {
     return (
-        <ScrollView>
-            <Text>Página princopal</Text>
-
-        </ScrollView>
+        <View style={styles.container}>
+            <Text>Página principal</Text>
+        </View>
     );
 }

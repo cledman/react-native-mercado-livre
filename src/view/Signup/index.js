@@ -8,6 +8,16 @@ import logo from '../../assets/logo.png';
 
 export default function Signup() {
 
+    const [user, setUser] = useState();
+    const [pass, setPass] = useState();
+
+    async function handleSignup(){
+        if(user, pass){
+            Alert.alert('Ok', 'tudo certo');
+        }else{
+            Alert.alert('erro', 'Preencha o email e senha');
+        }
+    }
 
 
     return (
@@ -19,6 +29,7 @@ export default function Signup() {
                     keyboardType="email-address"
                     autoCapitalize="none"
                     placeholder="Email"
+                    onChangeText={(text)=>{setUser(text)}}
                     style={styles.input}
                 />
                 <TextInput
@@ -26,11 +37,12 @@ export default function Signup() {
                     keyboardType="email-address"
                     autoCapitalize="none"
                     secureTextEntry={true}
+                    onChangeText={(text)=>{setPass(text)}}                    
                     placeholder="Email"
                     style={styles.input}
                 />
             </View>
-            <Button style="outline" onPress={false}><Text style={styles.text_primary}>ENTRAR</Text></Button>
+            <Button style="outline" onPress={handleSignup}><Text style={styles.text_primary}>ENTRAR</Text></Button>
         </View>
     );
 }

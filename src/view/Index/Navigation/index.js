@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { EvilIcons, Feather } from "@expo/vector-icons";
 
 import Main from '../Main';
+import List from '../List';
 import styles from './styles';
 
 const Stack = createStackNavigator();
@@ -55,12 +56,17 @@ const SearchBarHeader = () => {
 
 export default function Navigation(){
     return (
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="List">
             <Stack.Screen 
                 component={Main}
                 name="Main"
                 options={optionHeader}
             />
+            <Stack.Screen 
+                component={List}
+                name="List"
+                options={optionHeader}
+            />            
         </Stack.Navigator>
     )
 }
