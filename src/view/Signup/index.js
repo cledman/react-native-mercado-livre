@@ -5,18 +5,33 @@ import styles from './styles';
 import Button from '../../components/Button'
 
 import logo from '../../assets/logo.png';
+import firebase from '../../services/Firebase';
 
 export default function Signup() {
 
-    const [user, setUser] = useState();
-    const [pass, setPass] = useState();
+    const [user, setUser] = useState("");
+    const [pass, setPass] = useState("");
 
-    async function handleSignup(){
-        if(user, pass){
-            Alert.alert('Ok', 'tudo certo');
-        }else{
-            Alert.alert('erro', 'Preencha o email e senha');
+    function handleSignup() {
+
+        if (user, pass) {
+
+            firebase.auth().createUserWithEmailAndPassword(user, pass)
+                .then((response) => {
+                    Alert.alert('Ok', 'tudo certo')
+                })
+                .catch((erro) => {
+                    console.log(erro)
+                    Alert.alert('Ops', 'não foi possivel criar seu cadastro')
+
+                })
+
+
+
+        } else {
+            Alert.alert('Erro', 'Preenche email e senha')
         }
+
     }
 
 
@@ -29,7 +44,7 @@ export default function Signup() {
                     keyboardType="email-address"
                     autoCapitalize="none"
                     placeholder="Email"
-                    onChangeText={(text)=>{setUser(text)}}
+                    onChangeText={(text) => { setUser(text) }}
                     style={styles.input}
                 />
                 <TextInput
@@ -37,7 +52,7 @@ export default function Signup() {
                     keyboardType="email-address"
                     autoCapitalize="none"
                     secureTextEntry={true}
-                    onChangeText={(text)=>{setPass(text)}}                    
+                    onChangeText={(text) => { setPass(text) }}
                     placeholder="Email"
                     style={styles.input}
                 />
